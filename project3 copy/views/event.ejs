@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <title>Gen Gallery</Article></title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div id="type" data-page-type="<%= addSec %>"></div>
+
+    <div class="main s2">
+      <h1>Events</h1>
+      <div style="position:absolute; left:5vw;width:83vw;bottom: 42vw;">
+        <p>Whether you're an experienced artist or just a beginner, this club provides a space to learn and experiment.</p>
+      </div>
+      
+    </div>
+
+    <div class="main s3">
+      <h1>Guest Speakers</h1>
+      
+      
+    </div>
+
+    <div class="main s4">
+      <h1>Seminar</h1>
+    </div>
+
+    <div class="main s5">
+      <h1>Contact Us</h1>
+      <div style="position:absolute; left:5vw;width:83vw;bottom: 42vw;">
+        <p>Send us your email to join our email list!</p>
+      </div>
+      <div style="position:absolute; left:25vw;top:20vw;" class="app-container">
+        <div class="input-container">
+          <form method="POST" action="/upload" enctype="multipart/form-data">
+            <input type="text" name="text" placeholder="Your email...">
+            <input type="submit" name="submitbutton" value="Submit">
+          </form>
+        </div>
+      </div>
+
+      <div class="medias">
+        <a href="https://www.instagram.com/nyuaiac?igsh=MXc3dXpkcm41N2Jtbw==">
+          <img src="ins.PNG" class="media">
+        </a>
+        <a href="https://www.xiaohongshu.com/user/profile/6650b16400000000070079f0?xhsshare=CopyLink&appuid=5eee0866000000000101f119&apptime=1729618726&share_id=4edd3a8d36384c41933e96d8d6f4896b">
+          <img src="xhs.PNG" class="media">
+        </a>
+      </div>
+    </div>
+
+    <div class="navBarLeft">
+      <div class="navBox" id="left1">Workshop</div>
+      <div class="navBox" id="left2">Guest</div>
+      <div class="navBox" id="left3">Seminar</div>
+      <div class="navBox" id="left4">Contact</div>
+    </div>
+
+    <div class="navBarRight">
+      <div class="navBox" id="right1" onclick="window.location.href='/';">About Us</div>
+      <div class="navBox" id="right2">Events</div>
+      <div class="navBox" id="right3" onclick="window.location.href='/gallery';">Gallery</div>
+      <div class="navBox" id="right4">Contact</div>
+    </div>
+    <script src="/script.js"></script>
+  </body>
+</html>

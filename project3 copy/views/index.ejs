@@ -1,0 +1,130 @@
+<html>
+  <head>
+    <title>Gen Art Club</Article></title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div id="type" data-page-type="<%= addSec %>"></div>
+    <div class="main s1">
+      <div id="gridContainer"></div>
+      <div id="welcome">Welcome to</div>
+      <div id="clubNameSmall">NYU&nbsp;&nbsp;Tisch&nbsp;_&nbsp;Generative &nbsp;&nbsp;Art &nbsp;&nbsp;Club</div>
+      <div id="clubNameBig">GAC</div>
+    </div>
+
+    <div class="main s2">
+      <h1>About Us</h1>
+      <div class="textContainerFlex">
+        <img id="clubLogo" src="clubLogo.PNG">
+        <div id="two1">
+          <p>
+            We are a Tisch club dedicated to exploring the intersection of art and technology through artificial intelligence. We aim to foster creativity by leveraging AI tools and techniques and encouraging collaboration among artists, technologists, and enthusiasts. No matter you're an experienced artist or just curious about AI, this club provides a space to learn, experiment, and innovate with cutting-edge AI art practices.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="main s3">
+      <h1>AI Tools</h1>
+      <div class="textContainer">
+        <div class="dualContainer">
+          <div class='three123'>
+            <p>MidJourney is an AI-based image generation tool that transforms text prompts into highly artistic, surreal, or realistic images. Users interact with the platform primarily through Discord, where they can refine their prompts and explore various artistic styles.</p>
+          </div>
+          <img class="AILogo" src="midjourney.PNG">
+        </div>
+
+        <div class="dualContainer">
+          <img class="AILogo" src="sd.PNG">
+          <div class='three123'>
+            <p>Stable Diffusion is an open-source AI model for generating images from text, known for its flexibility and ability to run on personal devices. It allows users to customize outputs through various parameters and has been widely adopted for creative projects, research, and practical applications.</p>
+          </div>
+        </div>
+
+        <div class="dualContainer">
+            <div class='three123'>
+              <p>Runway is a creative toolkit powered by machine learning models that enable users to generate, edit, and manipulate images, videos, and audio with AI. It offers models for image synthesis, background removal, and more.</p>
+            </div>
+            <img class="AILogo" src="runway.PNG">
+        </div>
+      </div>
+    </div>
+
+    <div class="main s4">
+      <h1>Our Team</h1>
+      <div class="textContainerFlex">
+        <div class="memberBox">
+          <img class="memPic" src="mem1.PNG">
+          <h2>Arataka Reigen</h2>
+          <p>I'm passionate about combining technology and creativity. Exploring AI tools to push artistic boundaries excites me!</p>
+        </div>
+        <div class="memberBox">
+          <img class="memPic" src="mem2.PNG">
+          <h2>Shigeo Kageyama</h2>
+          <p>Art and AI are the future, and I love experimenting with both to create something new and unexpected.</p>
+        </div>
+        <div class="memberBox">
+          <img class="memPic" src="mem3.PNG">
+          <h2>Ekubo</h2>
+          <p>I'm fascinated by how AI can unlock new dimensions of visual storytelling. Let's build a space to explore that together!</p>
+        </div>
+      </div>
+      <div class="textContainerFlex">
+        <div class="memberBox">
+          <img class="memPic" src="mem4.PNG">
+          <h2>Teruki Hanazawa</h2>
+          <p>I enjoy blending code with art to discover innovative ways of expression. Excited to see what we'll create in this club!</p>
+        </div>
+        <div class="memberBox">
+          <img class="memPic" src="mem5.PNG">
+          <h2>Ritsu Kageyama</h2>
+          <p>AI art opens endless possibilities, and I'm here to collaborate, learn, and contribute to the journey.</p>
+        </div>
+        <div class="memberBox">
+          <img class="memPic" src="mem6.PNG">
+          <h2>Shou Suzuki</h2>
+          <p>I love trying new tools like MidJourney and Stable Diffusion. Can't wait to share ideas and grow with the club</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="main s5">
+      <h1>Contact Us</h1>
+      <div style="position:absolute; left:5vw;width:83vw;bottom: 42vw;">
+        <p>Send us your email to join our email list!</p>
+      </div>
+      <div style="position:absolute; left:25vw;top:20vw;" class="app-container">
+        <div class="input-container">
+          <form method="POST" action="/upload" enctype="multipart/form-data">
+            <input type="text" name="text" placeholder="Your email...">
+            <input type="submit" name="submitbutton" value="Submit">
+          </form>
+        </div>
+      </div>
+
+      <div class="medias">
+        <a href="https://www.instagram.com/nyuaiac?igsh=MXc3dXpkcm41N2Jtbw==">
+          <img src="ins.PNG" class="media">
+        </a>
+        <a href="https://www.xiaohongshu.com/user/profile/6650b16400000000070079f0?xhsshare=CopyLink&appuid=5eee0866000000000101f119&apptime=1729618726&share_id=4edd3a8d36384c41933e96d8d6f4896b">
+          <img src="xhs.PNG" class="media">
+        </a>
+      </div>
+    </div>
+
+    <div class="navBarLeft">
+      <div class="navBox" id="left1">Club Intro</div>
+      <div class="navBox" id="left2">AI Tools</div>
+      <div class="navBox" id="left3">Eboard</div>
+      <div class="navBox" id="left4">Contact</div>
+    </div>
+
+    <div class="navBarRight">
+      <div class="navBox" id="right1">About Us</div>
+      <div class="navBox" id="right2" onclick="window.location.href='/event';">Events</div>
+      <div class="navBox" id="right3" onclick="window.location.href='/gallery';">Gallery</div>
+      <div class="navBox" id="right4">Contact</div>
+    </div>
+    <script src="/script.js"></script>
+  </body>
+</html>

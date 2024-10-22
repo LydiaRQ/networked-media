@@ -1,0 +1,182 @@
+<html>
+  <head>
+    <title>Gen Gallery</Article></title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div id="type" data-page-type="<%= addSec %>"></div>
+
+    <div class="main s2">
+      <h1>Gallery</h1>
+      <div style="position:absolute; left:5vw;width:83vw;bottom: 42vw;">
+        <p>Whether you're an experienced artist or just a beginner, this club provides a space to learn and experiment.</p>
+      </div>
+      <div class="galleryContainer">
+        <div class="gallery" id="gallery1"></div>
+        <div class="gallery" id="gallery2"></div>
+        <div class="gallery" id="gallery3"></div>
+        <div class="gallery" id="gallery4"></div>
+      </div>
+    </div>
+
+    <div class="main s3">
+      <h1>Video Artworks</h1>
+      <div style="position:absolute; left:5vw;width:83vw;bottom: 42vw;">
+        <p>Discover, create, and inspire with AI-powered video art -- where creativity and technology unite.</p>
+      </div>
+      <div class="videoContainer">
+        <div id="videoContainer1">
+          <div class="Vtext">
+            <img class="processBar" src="bar.gif">
+          </div>
+          <div class="twoV">
+            <iframe class="embedSmall" src="https://www.youtube.com/embed/1QbFVRyp-Fg?si=xM2gh4bMX220CQZn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe class="embedSmall" src="https://www.youtube.com/embed/xDyU-cC5-XU?si=LG8GsFNUwvhZpZkT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <div class="oneV">
+            <iframe class="embedBig" src="https://www.youtube.com/embed/hu1Djo8mN5I?si=aU8hd6QiaTyfS3pP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div id="videoContainer2">
+          <div class="oneV">
+            <iframe class="embedBig" src="https://www.youtube.com/embed/LcIkifJInWQ?si=6MX2vaFI6SOqgMe1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <div class="twoV">
+            <iframe class="embedSmall" src="https://www.youtube.com/embed/52UBHNEJ6Ew?si=rNf5BKESI4TnMk1w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe class="embedSmall" src="https://www.youtube.com/embed/HK6y8DAPN_0?si=GRrAJ_Imk8sTUG29" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <div class="Vtext">
+            <img class="processBar" style="width:41.4vw;padding-top: 4vw;"src="bar.gif">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main s4">
+      <h1>Public Gallery</h1>
+      <div style="position:absolute; left:5vw;width:83vw;bottom: 42vw;">
+        <p>Upload your own works to our pubic gallery wall!</p>
+      </div>
+
+      
+
+      <div class="galleryContainer" id="publicGallery" data-public-info='<%= JSON.stringify(publicInfo) %>'>
+        <div class="gallery" id="public1">
+          <% for(let i=0; i< 60+publicInfo.length;i+=3){ %>
+            <div class="galleryBox">
+              <% if(i< publicData.length){%>
+                <img id="img<%= i %>" src="<%= publicData[i].imgSrc %>"/>
+                
+              <% }%>
+            </div>
+          <% } %>
+        </div>
+
+        <div class="gallery" id="public2">
+          <% for(let i=1; i< 60+publicInfo.length;i+=3){ %>
+            <div class="galleryBox">
+              <% if(i< publicData.length){%>
+                <img id="img<%= i %>" src="<%= publicData[i].imgSrc %>"/>
+                
+              <% }%>
+            </div>
+          <% } %>
+          
+        </div>
+        <div class="gallery" id="public3">
+          <% for(let i=2; i< 60+publicInfo.length;i+=3){ %>
+            <div class="galleryBox">
+              <% if(i< publicData.length){%>
+                <img id="img<%= i %>" src="<%= publicData[i].imgSrc %>"/>
+                
+              <% }%>
+            </div>
+          <% } %>
+        </div>
+      </div>
+
+      <% for(let i=0; i< publicData.length;i++){ %>
+        <div class="infoPopup" id="popup<%= i %>">
+          <div class="popup-content">
+            <h3 style="padding:0;"><%= publicInfo[i]?.title || 'No Title' %></h3>
+            <p>Powered by: <%= publicInfo[i]?.poweredBy || 'Unknown' %></p>
+            <p>Uploaded by: <%= publicInfo[i]?.uploadedBy || 'Unknown' %></p>
+            <p>Upload Time: <%= publicInfo[i]?.uploadTime || 'Unknown' %></p>
+          </div>
+        </div>
+      <% } %>
+
+      <div class="submitContainer">
+        <form id="imageUploadForm" method="POST" action="/upload-image" enctype="multipart/form-data">
+        <!-- <label for="theimage">Upload Image:</label> -->
+        <button id='submitBttn' type="submit">Submit</button>
+        <input type="file" id="theimage" name="theimage" required>
+        </form>
+      </div>
+
+      <div id="popupForm" class="popup">
+        <h3>Image Information</h3>
+        <form  method="POST" id="infoForm" action="/upload-text">
+          <input type="hidden" id="imagePath" name="imagePath">
+
+          <div class="inputClass">
+            <label for="title">Title:</label>
+            <input type="text" id="title" class="inputText" name="title" required>
+          </div>
+          
+          <div class="inputClass">
+            <label for="poweredBy">Powered by:</label>
+            <input type="text" id="poweredBy" class="inputText" name="poweredBy" required>
+          </div>
+
+          <div class="inputClass">
+            <label for="uploadedBy">Uploaded by:</label>
+            <input type="text" id="uploadedBy" class="inputText" name="uploadedBy" required>
+          </div>
+
+          <button id="textBttn" type="submit">Save</button>
+        </form>
+        
+    </div>
+    </div>
+
+    <div class="main s5">
+      <h1>Contact Us</h1>
+      <div style="position:absolute; left:5vw;width:83vw;bottom: 42vw;">
+        <p>Send us your email to join our email list!</p>
+      </div>
+      <div style="position:absolute; left:25vw;top:20vw;" class="app-container">
+        <div class="input-container">
+          <form method="POST" action="/upload" enctype="multipart/form-data">
+            <input type="text" name="text" placeholder="Your email...">
+            <input type="submit" name="submitbutton" value="Submit">
+          </form>
+        </div>
+      </div>
+
+      <div class="medias">
+        <a href="https://www.instagram.com/nyuaiac?igsh=MXc3dXpkcm41N2Jtbw==">
+          <img src="ins.PNG" class="media">
+        </a>
+        <a href="https://www.xiaohongshu.com/user/profile/6650b16400000000070079f0?xhsshare=CopyLink&appuid=5eee0866000000000101f119&apptime=1729618726&share_id=4edd3a8d36384c41933e96d8d6f4896b">
+          <img src="xhs.PNG" class="media">
+        </a>
+      </div>
+    </div>
+
+    <div class="navBarLeft">
+      <div class="navBox" id="left1">Image</div>
+      <div class="navBox" id="left2">Video</div>
+      <div class="navBox" id="left3">Public</div>
+      <div class="navBox" id="left4">Contact</div>
+    </div>
+
+    <div class="navBarRight">
+      <div class="navBox" id="right1" onclick="window.location.href='/';">About Us</div>
+      <div class="navBox" id="right2" onclick="window.location.href='/event';">Events</div>
+      <div class="navBox" id="right3">Gallery</div>
+      <div class="navBox" id="right4">Contact</div>
+    </div>
+    <script src="/script.js"></script>
+  </body>
+</html>

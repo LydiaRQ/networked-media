@@ -1,0 +1,488 @@
+/* Overall Layout */
+@font-face{
+  font-family: 'font1';
+  src:url('Jura-VariableFont_wght.ttf');
+}
+@font-face{
+  font-family: 'font2';
+  src:url('BlackOpsOne-Regular.ttf');
+}
+body{
+  background-color: rgb(0, 0, 0);
+  font-family: 'font1',sans-serif;
+  margin: 0;
+  padding: 0;
+}
+h1{
+  color: white;
+  padding-left: 5%;
+  padding-top: 5%;
+  font-size: 5vw;
+  font-family: 'font2',sans-serif;
+  margin-bottom: 0;
+}
+h2{
+  padding: 0;
+  margin: 0;
+  font-size: 1.4vw;
+}
+h3{
+  font-size:2.5vw;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+p{
+  font-size: 1.4vw;
+  margin-bottom: 0;
+}
+
+/* Page Layout*/
+.main{
+  width: 100%;
+  height: 100%;
+  color: white;
+  position: relative;
+}
+.navBarLeft{
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100px;
+  width:10vw;
+  height: 40vw;
+  flex-direction: column;
+}
+.navBarRight{
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 100px;
+  width:10vw;
+  height: 40vw;
+  flex-direction: column;
+}
+.navBox{
+  flex:1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: 'font2',sans-serif;
+}
+#left1{
+  background-color: #b5a4fd;
+}
+#left2{
+  background-color: #4b3e81;
+}
+#left3{
+  background-color: #b5a4fd;
+}
+#left4{
+  background-color: #7866c1;
+}
+#right1{
+  background-color: #b5a4fd;
+}
+#right2{
+  background-color: #4b3e81;
+}
+#right3{
+  background-color: #b5a4fd;
+}
+#right4{
+  background-color: #7866c1;
+}
+
+/* Containers */
+.textContainer{
+  position: relative;
+  top: -4%;
+  left: 12vw;
+  width: 78vw;
+}
+.textContainerFlex{
+  display: flex;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom: 0px;
+  padding-top:2%;
+  position: relative;
+  left: 10vw;
+  width: 76vw;
+}
+.dualContainer{
+  display: flex;
+
+}
+
+/* Main Page - P1 */
+.s1{
+  width: 100%;
+  height: 100%;
+  color: white;
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+#clubNameBig{
+  font-family: 'font2',sans-serif;
+  letter-spacing: -5px;
+  pointer-events: none;
+  position: absolute;
+  top:22.6vw;
+  left:38.8vw;
+  font-size: 22vw;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+#clubNameSmall{
+  font-family: 'font1',sans-serif;
+  position: absolute;
+  pointer-events: none;
+  font-size: 2.7vw;
+  left:40.2vw;
+  top:40vw;
+  margin:0;
+  padding: 0;
+}
+#welcome{
+  font-family: 'font2',sans-serif;
+  position: absolute;
+  pointer-events: none;
+  font-size: 6vw;
+  left:10.05vw;
+  top:14.45vw;
+  margin: 0;
+  padding: 0;
+}
+#gridContainer{
+  display: flex;
+  flex-wrap: wrap;
+  width:100%;
+  margin: 0;
+  padding: 0;
+}
+.flip-card{
+  background-color: transparent;
+  width:10vw;
+  height: 10vw;
+  perspective: 1000px;
+}
+.flip-card-inner{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+/* .flip-card:hover .flip-card-inner{
+  transform: rotateY(180deg);
+} */
+.flip-card-front, .flip-card-back{
+  position: absolute;
+  width:100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.flip-card-front{
+  transform: rotateY(180deg);
+}
+.flip-card-back{
+  background-color: #b5a4fd;
+  
+}
+.flipped{
+  transform: rotateY(180deg);
+}
+.imgBox{
+  width:100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+}
+.imgBox img{
+  width:100%;
+  height: 100%;
+}
+/* Main Page - P2 */
+#clubLogo{
+  width:45vw;
+  height:45vw;
+}
+#two1{
+  width:30vw;
+  align-self: center;
+  padding-right: 8vw;
+}
+
+/* Main Page - P3 */
+.AILogo{
+  width:15vw;
+  height: auto;
+}
+.three123{
+  align-self: center;
+  width:65vw;
+}
+
+/* Main Page - P4 */
+.memberBox{
+  flex:1;
+  display: grid;
+  place-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.memberBox p{
+  font-size: 1.35vw;
+}
+.memPic{
+  width:10vw;
+  height: auto;
+}
+
+/* Gallery - P1 */
+.galleryContainer{
+  width:100vw;
+  height: 40vw;
+  bottom: 0%;
+  overflow: hidden;
+  align-items: center;
+  position: absolute;
+}
+.gallery{
+  display: flex;
+  width:max-content;
+  position: relative;
+  white-space: nowrap;
+}
+.galleryBox{
+  width:10vw;
+  height:10vw;
+  position: relative;
+  overflow: hidden;
+}
+.galleryBox img{
+  width:100%;
+  height:100%;
+  overflow: hidden;
+}
+
+
+/* Gallery - P2 */
+.videoContainer{
+  width:80vw;
+  height: 40vw;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left:10vw;
+}
+#videoContainer1{
+  position: absolute;
+  width:40vw;
+  height: 40vw;
+  bottom: 0;
+  left: 0;
+}
+#videoContainer2{
+  position: absolute;
+  width:40vw;
+  height: 40vw;
+  top:0;
+  right: 0;
+}
+.processBar{
+  width:40vw;
+  height: auto;
+  position: absolute;
+  z-index: -10px;
+}
+.twoV{
+  display: flex;
+  width:100%;
+  height:20vw;
+}
+.oneV{
+  width:100%;
+  height: 10vw;
+}
+.Vtext{
+  width:40vw;
+  height: 10vw;
+  position: relative;
+}
+iframe{
+  margin:0;
+  padding: 0;
+}
+.embedSmall{
+  width:20vw;
+  height:20vw;
+}
+.embedBig{
+  width:40vw;
+  height:10vw;
+}
+
+/* Gallery - P3 */
+.submitContainer{
+  position: absolute;
+  left:40vw;
+  top:50vw;
+}
+#submitBttn{
+  border: none;
+  font-size: 15pt;
+  cursor: pointer;
+  margin-top: 10px;
+  padding: 5px 20px 5px 20px;
+  color: white;
+  background-color:#b5a4fd;
+  font-family: 'font1',sans-serif;
+}
+.popup{
+  display: none;
+  position: absolute;
+  top:20vw;
+  left:35vw;
+  width:30vw;
+  height: 20vw;
+  background-color: #7866c1;
+  border: 2px solid #1a1432;
+}
+.popup input[type="text"]{
+  width:14vw;
+  height: 25px;
+  background-color: #b5a4fd;
+  border: 1px solid #4b3e81;
+  border-radius: 5px;
+  position: absolute;
+  right: 40px;
+  outline: #d7cfff;
+}
+#infoForm{
+  display: grid;
+  place-items: center;
+  font-size: 1.4vw;
+  margin-top: 0.5vw;
+  padding-bottom: 20px;
+}
+
+.inputClass{
+  display: flex;
+  width:80%;
+  padding-top: 10px;
+}
+#textBttn{
+  margin-top: 4vw;
+  padding: 3px 10px 3px 10px;
+  color: white;
+  background-color:#b5a4fd;
+  font-family: 'font1',sans-serif;
+  font-size: 1.5vw;
+  border: 1px solid #4b3e81;
+}
+.infoPopup{
+  position: absolute;
+  display: none;
+  z-index: 100px;
+  top:20vw;
+  left:35vw;
+  width:30vw;
+  height: 20vw;
+  background-color: #7866c1;
+  border: 2px solid #1a1432;
+}
+.popup-content{
+  display: grid;
+  place-items: center;
+  font-size: 1.4vw;
+  margin-top: 0.1vw;
+  padding-bottom: 20px;
+}
+
+/* Contact */
+.app-container {
+  margin: auto;
+  text-align: center;
+  padding: 10px;
+  width: 50%;
+}
+.input-container {
+  border: 0px;
+  padding: 10px;
+  margin: auto;
+  color: white;
+}
+.input-container form {
+  margin: 0;
+}
+input[type="text"] {
+  width: 100%;
+  height: 40px;
+  background-color: #ab96ff84;
+  font-family: 'font1',sans-serif;
+  font-size: 1.4vw;
+  color: white;
+}
+
+input[type="submit"]{
+  border: none;
+  font-size: 15pt;
+  cursor: pointer;
+  margin-top: 10px;
+  padding: 5px 20px 5px 20px;
+  color: white;
+  background-color:#b5a4fd;
+  font-family: 'font1',sans-serif;
+}
+input[type='file']{
+  font-family: 'font1',sans-serif;
+}
+.messages-container {
+  padding-top: 10px;
+  text-align: left;
+}
+.date {
+  color: lightgrey;
+  font-family: sans-serif;
+  font-size: 10pt;
+}
+.message {
+  font-size: 16pt;
+  margin: 0;
+  padding-top: 5px;
+}
+.message-item {
+  margin-top: 20px;
+  border: 2px grey solid;
+  padding: 10px 5px;
+}
+.item-image img {
+  width: 100%;
+}
+
+.medias{
+  left:45vw;
+  width:10vw;
+  display: flex;
+  position: absolute;
+  bottom:20px;
+  align-items: center;
+}
+
+.media{
+  padding: 10px;
+  height: 5vw;
+  width:5vw;
+} 
+
+
+
