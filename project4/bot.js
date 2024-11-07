@@ -14,6 +14,7 @@ const stream = m.createStreamingAPIClient({
   });
 let lastReplyTime = 0;
 let mood = ["It's time to eat something","Are you hungry?","Do you feel like having a snack?","How about taking a bite?","Maybe it's time to eat."]
+const emojiResponses = ["🍕", "🍔", "🍟", "🍣", "🍤", "🍩", "🥗", "🍜", "🍰"];
 const food = [
     "Spaghetti Carbonara",
     "Beef Wellington",
@@ -44,6 +45,12 @@ async function makeStatus(text){
     })
 }
 
+function getRandomEmojiResponse() {
+    const index = Math.floor(Math.random() * emojiResponses.length);
+    return emojiResponses[index];
+}
+
+
 function getRandomFood(){
     const index = Math.floor(Math.random()*food.length);
     return food[index]
@@ -68,7 +75,7 @@ async function reply() {
       const currentTime = Date.now();
       // if the type of notification is a mention
       if (type === "mention" && (currentTime-lastReplyTime)>1000) {
-        const replyFood = getRandomFood();
+        const replyFood = getRandomEmojiResponse();
 
           // create a status
         await masto.v1.statuses.create({
