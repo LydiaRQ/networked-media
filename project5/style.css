@@ -1,0 +1,373 @@
+@font-face {
+    font-family: 'uiFont';
+    src: url(UI.ttf);
+}
+@font-face {
+    font-family: 'contentFont';
+    src: url(Content.ttf);
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffd596df;
+    font-family: 'uiFont', sans-serif;
+    overflow: hidden;
+  }
+
+h1{
+    font-size: 9vw;
+}
+h2{
+    color: rgb(255, 233, 186);;
+    margin-top: 0;
+    font-size: 5vw;
+}
+button{
+    font-family: 'uiFont', sans-serif;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 5px solid rgb(110, 76, 57);
+    border-radius: 20px;
+    color:rgb(232, 101, 0);
+    font-size: 2vw;
+    background-color: rgb(255, 233, 186);
+  }
+button:hover{
+    font-family: 'uiFont', sans-serif;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 5px solid rgb(110, 76, 57);
+    border-radius: 20px;
+    color:rgb(255, 233, 186);
+    font-size: 2.1vw;
+    background-color: rgb(232, 101, 0);
+}
+
+/* Start Page */
+.start-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-size: cover;
+    background-image: url(images/homepage.JPG);
+}
+#startBttn{
+    font-family: 'uiFont', sans-serif;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 10px solid rgb(110, 76, 57);
+    border-radius: 20px;
+    color:rgb(232, 101, 0);
+    font-size: 3vw;
+    background-color: rgb(255, 233, 186);
+  }
+#startBttn:hover{
+    font-family: 'uiFont', sans-serif;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 10px solid rgb(110, 76, 57);
+    border-radius: 20px;
+    color:rgb(255, 233, 186);
+    font-size: 3.1vw;
+    background-color: rgb(232, 101, 0);
+}
+
+/* Garden Page */
+.garden-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-size: cover;
+    background-image: url(images/gardenBG.JPG);
+}
+.gardenPl {
+    position: absolute;
+    z-index: 1000000;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    width:100vw;
+    background-size: cover;
+    pointer-events: none;
+    background-image: url(images/frontPl.PNG);
+}
+#add{
+position:absolute;
+z-index: 10000000;
+bottom: 5px;
+align-items: center;
+display: flex;
+flex-direction: column;
+}
+
+
+#add-btn{
+    width:20vw;
+}
+#add-btn img{
+    width:10vw;
+    height:auto;
+    
+}
+.hidden {
+    display: none;
+  }
+
+
+.garden-page .cats {
+    border: 0.1px solid transparent;
+    height: 55vh;
+    width: 95%;
+    display: block;
+    position: relative; 
+    flex-wrap: wrap;
+
+}
+.garden-page .cat {
+    border: 0.1px solid transparent;
+    position: absolute;
+    z-index: -100;
+    padding: 10px;
+    height:10vw;
+    width:10vw;
+}
+canvas {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+.garden-page .cat img{
+    border: 0.1px solid transparent;
+    position: absolute;
+    height:10vw;
+    width:10vw;
+}
+.catContent{
+    font-family: 'contentFont',sans-serif;
+    font-size: 2vw;
+    display: none;
+    position: absolute;
+    top:0vh;
+    left:20vw;
+    z-index: 100;
+    width: 50vw;
+    height:40vh;
+    padding: 2vw;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+    background-color: rgb(255, 233, 186);
+    color:rgb(110, 76, 57);
+    border: 5px solid rgb(110, 76, 57);
+}
+.catContent img{
+    width: 40vw;
+    height: auto;
+}
+.fishDiv {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    left: 40vw; 
+    bottom: -5vh; 
+    width: min(15vw, 200px);
+    height: min(15vw, 200px);
+    padding-top: 0vw;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2vw;
+    border-radius: 5px;
+    text-align: center;
+    background-size:cover;
+    background-position: center;
+    overflow: hidden;
+}
+.fishCount{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.fishDiv {
+
+    display: none;
+    background-image: url('images/fish1.PNG'); /* 已点击时的背景图片 */
+}
+.fishDiv.clicked {
+    background-image: url('images/fish2.PNG'); /* 已点击时的背景图片 */
+}
+.moodPreview {
+    position: absolute;
+    z-index: 1000;
+    bottom: 65% !important;
+    left:70% !important;
+    width: 130px;
+    height: 130px;
+    background-size: cover;
+    background-position: center;
+  }
+/* 积分显示 */
+#pointsDisplay {
+    justify-content: center;
+    align-items: center;
+    border: 5px solid rgb(110, 76, 57);
+    border-radius: 20px;
+    display: flex;
+    background-color:rgb(255, 233, 186);
+    z-index: 10000000;
+    position: fixed;
+    width: 13vw;
+    height: 7vh;
+    top: 30px;
+    left: 30px;
+    font-size: 1.5vw;
+    color: rgb(110, 76, 57);
+  }
+  #pointImg{
+    width:7vh;
+    height: 7vh;
+  }
+  
+  /* Plant Div */
+  #plantDiv {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 20vh;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000000000000000;
+  }
+  
+  .plantOption {
+    flex: 1;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: rgb(255, 233, 186);
+    border: 2px solid rgb(110, 76, 57) ;
+  }
+  
+  .plantOption img {
+    height: 100%;
+  }
+  
+  .plantOption.selected {
+    background-color: rgb(232, 101, 0);
+  }
+
+/* Create Page */
+.createPage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.contentForm{
+    width: 50vw;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+#content{
+    border: 5px solid rgb(110, 76, 57);
+    background-color: blanchedalmond;
+    width:40vw;
+    height: 20vh;
+    font-family: 'contentFont',sans-serif;
+    font-size: 1.6vw;
+}
+
+/* Customize Page */
+#saveButton{
+    position: absolute;
+    top:20px;
+    right: 20px;
+}
+.custPage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+#showCat{
+    padding: 0;
+    width: 25vw;
+    height: 25vw;
+    
+
+}
+#showCat img{
+    width:25vw;
+    height:25vw;
+    position: absolute;
+}
+#attributeBar{
+    width:100vw;
+    height:5vw;
+    margin-top: 20px;
+    display: flex;
+}
+
+.barItem{
+    flex:1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 233, 186);
+    border: 2px solid rgb(110, 76, 57) ;
+}
+.barItem.clicked{
+    color: rgb(255, 233, 186);
+    background-color: rgb(232, 101, 0);
+    border: 2px solid rgb(255, 233, 186) ;
+}
+.barItem:hover{
+    color: rgb(255, 233, 186);
+    background-color: rgb(232, 101, 0);
+    border: 2px solid rgb(255, 233, 186) ;
+}
+.option{
+    flex:1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20vw;
+    width: 20vw;
+}
+.option:hover{
+    background-color: rgba(232, 101, 0, 0.377);
+}
+.option img{
+    width:20vw;
+    height:20vw;
+}
+.slidingOption {
+  display: none; /* 默认隐藏 */
+  width: 100vw;
+  display: flex;
+}
+
+.slidingOption.flex {
+  display: flex; /* 显示时设置为 flex */
+  position: relative;
+}
+.moodOption{
+   
+    position: absolute;
+    left:53vw;
+    top:0vh;
+}

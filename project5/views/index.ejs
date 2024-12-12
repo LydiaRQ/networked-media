@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Meowmery Garden</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <audio loop id="bgm" src="bgm.mp3" type="audio/mp3"></audio>
+  <div class="start-page">
+    <h1>Meowmery Garden</h1>
+    <button id="startBttn" onclick="location.href='/garden'">ENTER</button>
+  </div>
+</body>
+<script>
+  document.querySelector("button#startBttn").addEventListener("click", ()=>{
+    document.querySelector("audio").play();
+  })
+</script>
+<script src="script.js"></script>
+</html>

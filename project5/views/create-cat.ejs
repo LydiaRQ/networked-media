@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create Cat</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="createPage">
+    <h2>Create Your Cat</h2>
+    <form class="contentForm" action="/save-cat" method="POST" enctype="multipart/form-data">
+      <label for="content">Content:</label><br>
+      <textarea id="content" name="content" required></textarea><br><br><br>
+      <label for="contentImage">Upload Image:</label><br>
+      <input type="file" id="contentImage" name="contentImage" accept="image/*"><br>
+      <button type="submit">Save Cat</button>
+    </form>
+
+  </div>
+
+  <script src="script.js">
+  </script>
+</body>
+</html>

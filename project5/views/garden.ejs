@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Meowmery Garden</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <audio loop id="bgm" src="bgm.mp3" type="audio/mp3"></audio>
+  <div class="garden-page">
+    <h2>Meowmery Garden</h2>
+    
+    <div class="gardenPl"></div>
+
+    <div class="cats">
+      <% cats.forEach(cat => { %>
+        <div 
+          class="cat" 
+          data-sound="<%= cat.sound %>" 
+          data-cat-number="<%= cat.number %>"
+          onclick="showContent('<%= cat.number %>')" 
+          onmouseover="showMood('<%= cat.mood %>', this)" 
+          onmouseout="hideMood(this)"
+          style="left: <%= cat.number %>0vw">
+          
+          <% if (cat.pattern && cat.pose) { %>
+            <% if (cat.pattern == 5) { %>
+              <img src="/images/pattern<%= cat.pattern %>-<%= cat.pose %>.png" style="z-index: 3;">
+            <% } else { %>
+              <img src="/images/pattern<%= cat.pattern %>-<%= cat.pose %>.gif" style="z-index: 3;">
+            <% } %>
+          <% } %>
+          
+          <% if (cat.color && cat.pose) { %>
+            <% if (cat.pattern == 5) { %>
+              <img src="/images/color<%= cat.color %>-<%= cat.pose %>.png" style="z-index: 2;">
+            <% } else { %>
+              <img src="/images/color<%= cat.color %>-<%= cat.pose %>.gif" style="z-index: 2;">
+            <% } %>
+          <% } %>
+
+          <div class="moodPreview" style="display: none;"></div>
+        </div>
+
+        <div id="cat<%= cat.number %>" class="catContent" style="display: none;">
+          <% if (cat.image) { %>
+            <img src="<%= cat.image %>" alt="Cat Image">
+          <% } %>
+          <p><%= cat.content %></p>
+        </div>
+
+        <div 
+          id="fish<%= cat.number %>" 
+          class="fishDiv <%= cat.likedUsers && cat.likedUsers.includes(userIp) ? 'clicked' : '' %>" 
+          data-cat-number="<%= cat.number %>" 
+          style="background-image: url('<%= cat.likedUsers && cat.likedUsers.includes(userIp) ? 'images/fish2.PNG' : 'images/fish1.PNG' %>');">
+          <span class="fishCount"><%= cat.fish || 0 %></span>
+        </div>
+      <% }); %>
+    </div>
+
+    <div id="add">
+      <div id="options" class="hidden">
+        <button onclick="location.href='/create-cat'">Create Cat</button>
+        <button id="buildGardenBtn">Build Garden</button>
+      </div>
+      <img id="add-btn" src="/images/Add.png">
+    </div>
+
+    <!-- Plant Selection -->
+    <div id="plantDiv" style="display: none;">
+      <% for (let i = 1; i <= 8; i++) { %>
+        <div class="plantOption" data-plant="<%= i %>">
+          <img src="/images/plant<%= i %>.PNG" alt="Plant <%= i %>">
+        </div>
+      <% } %>
+    </div>
+
+    <div id="pointsDisplay">
+      <img src="/images/point.png" id="pointImg">
+      <p id="pointText">Points: 0</p>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+<script>
+  
+</script>
+</html>

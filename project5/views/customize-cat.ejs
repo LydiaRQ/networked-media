@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Customize Cat</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="custPage">
+    <h2 style="margin: 0; padding: 0;">Customize Cat</h2>
+    
+   
+    <div id="showCat"></div>
+
+<button id="saveButton">Save</button>
+
+<div id="attributeBar">
+  <div class="barItem" data-attribute="pattern">Pattern</div>
+  <div class="barItem" data-attribute="color">Color</div>
+  <div class="barItem" data-attribute="pose">Pose</div>
+  <div class="barItem" data-attribute="sound">Sound</div>
+  <div class="barItem" data-attribute="mood">Mood</div>
+</div>
+
+<div id="slidingOptions">
+  <div class="slidingOption" id="slidingOption-pattern">
+    <% for (let i = 1; i <= 5; i++) { %>
+      <div class="option" data-value="<%= i %>" data-attribute="pattern">
+        <img src="/images/pattern<%= i %>-<%= cat.pose %>.PNG" alt="Pattern <%= i %>">
+      </div>
+    <% } %>
+  </div>
+
+  <div class="slidingOption" id="slidingOption-color" style="display: none;">
+    <% for (let i = 1; i <= 5; i++) { %>
+      <div class="option" data-value="<%= i %>" data-attribute="color">
+        <img src="/images/color<%= i %>-<%= cat.pose %>.PNG" alt="Color <%= i %>">
+      </div>
+    <% } %>
+  </div>
+
+  <div class="slidingOption" id="slidingOption-pose" style="display: none;">
+    <% for (let i = 1; i <= 5; i++) { %>
+      <div class="option" data-value="<%= i %>" data-attribute="pose">
+        <img src="/images/pose<%= i %>.PNG" alt="Pose <%= i %>">
+      </div>
+    <% } %>
+  </div>
+
+  <div class="slidingOption" id="slidingOption-sound" style="display: none;">
+    <% for (let i = 1; i <= 5; i++) { %>
+      <div class="option" onclick = "displaySound('<%= i %>')" data-value="<%= i %>" data-attribute="sound" >
+        Sound <%= i %>
+      </div>
+    <% } %>
+  </div>
+
+  <div class="slidingOption" id="slidingOption-mood" style="display: none;">
+    <% for (let i = 1; i <= 5; i++) { %>
+      <div class="option" data-value="<%= i %>" data-attribute="mood">
+        <img src="/images/mood<%= i %>.PNG" alt="Mood <%= i %>">
+      </div>
+    <% } %>
+  </div>
+</div>
+
+  <script>
+    const attributeBar = document.getElementById('attributeBar');
+    const slidingOptions = document.getElementById('slidingOptions');
+    const saveButton = document.getElementById('saveButton');
+    const showCat = document.getElementById('showCat');
+
+    let selectedAttributes = {
+      pattern: "1",
+      color: "1",
+      pose: "1",
+      sound: null,
+      mood: null
+    };
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+      updateShowCat();
+    });
+
+
+    attributeBar.addEventListener('click', (event) => {
+      const barItem = event.target;
+      const attribute = barItem.dataset.attribute;
+      if (!attribute) return;
+
+      const allBarItems = attributeBar.querySelectorAll('.barItem');
+      allBarItems.forEach(item => item.classList.remove('clicked'));
+      barItem.classList.add('clicked');
+
+
+      const allSlidingOptions = slidingOptions.querySelectorAll('.slidingOption');
+      allSlidingOptions.forEach(option => (option.style.display = 'none'));
+      const targetOption = document.getElementById(`slidingOption-${attribute}`);
+      if (targetOption) {
+        targetOption.style.display = 'flex';
+      }
+    });
+
+    //update options
+    slidingOptions.addEventListener('click', (event) => {
+      const option = event.target.closest('.option');
+      if (!option) return;
+
+      const attribute = option.dataset.attribute;
+      const value = option.dataset.value;
+
+      selectedAttributes[attribute] = value;
+      updateShowCat();
+    });
+
+    function displaySound(index){
+      let sound = new Audio(`/sound${index}.wav`);
+      console.log(index)
+      sound.play();
+    }
+
+    function updateShowCat() {
+
+      showCat.innerHTML = '';
+
+      if (selectedAttributes.color && selectedAttributes.pose) {
+        const colorImg = document.createElement('img');
+        colorImg.src = `/images/color${selectedAttributes.color}-${selectedAttributes.pose}.PNG`;
+        colorImg.style.zIndex = 1; 
+        showCat.appendChild(colorImg);
+      }
+
+      if (selectedAttributes.pattern && selectedAttributes.pose) {
+        const patternImg = document.createElement('img');
+        patternImg.src = `/images/pattern${selectedAttributes.pattern}-${selectedAttributes.pose}.PNG`;
+        patternImg.style.zIndex = 2; 
+        showCat.appendChild(patternImg);
+      }
+
+      if (selectedAttributes.pose) {
+        const poseImg = document.createElement('img');
+        poseImg.src = `/images/pose${selectedAttributes.pose}.PNG`;
+        poseImg.style.zIndex = 3; 
+        showCat.appendChild(poseImg);
+      }
+
+      if (selectedAttributes.mood) {
+        const moodImg = document.createElement('img');
+        moodImg.src = `/images/mood${selectedAttributes.mood}.PNG`;
+        moodImg.classList.add ("moodOption")
+        moodImg.style.zIndex = 4; 
+        showCat.appendChild(moodImg);
+      }
+    }
+
+    saveButton.addEventListener('click', async () => {
+      try {
+        const response = await fetch(`/update-cat/<%= cat.number %>`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(selectedAttributes)
+        });
+
+        if (response.ok) {
+          alert('Cat saved successfully!');
+          // Redirect to Garden page
+          window.location.href = '/garden';
+        } else {
+          alert('Failed to save cat.');
+        }
+      } catch (error) {
+        console.error('Error saving cat:', error);
+        alert('An error occurred while saving the cat.');
+      }
+    });
+  </script>
+</body>
+</html>
